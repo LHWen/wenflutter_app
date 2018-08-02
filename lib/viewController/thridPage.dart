@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'changePassWord.dart';
 
 class ThridPage extends StatelessWidget {
   // This widget is the root of your application.
@@ -80,11 +81,31 @@ class _MyHomePageState extends State<ThridPageHome> {
           'change passWord',
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
         ),
+        subtitle: Text('123456'),
         leading: Icon(
           Icons.verified_user,
           color: Colors.blue[500],
         ),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+        onTap: (){
+          setState(() {
+            // 添加Navigator.push调用
+            Navigator.of(context).push(
+              // 添加MaterialPageRoute及其builder
+              new MaterialPageRoute(
+                builder: (context) {
+                  // builder返回一个Scaffold，其中包含名为“Saved Suggestions”的新路由的应用栏。 新路由的body由包含ListTiles行的ListView组成; 每行之间通过一个分隔线分隔。
+                  return new Scaffold(
+                    appBar: new AppBar(
+                      title: new Text('Change PassWord'),
+                    ),
+                    body: ChangePassWord('123456'),
+                  );
+                },
+              ),
+            );
+          });
+        },
       ),
       Divider(),
       ListTile(
