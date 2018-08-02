@@ -69,7 +69,7 @@ class _MyHomePageState extends State<ChangePassWordHome> {
               color: Colors.blue[500],
               child: FlatButton(
                   onPressed: (){
-                    print('change password\nold pwd: ' + oldPassword + '\nnew pwd: '+ newPassword+ '\nsure new pwd: ' + surePassword);
+                    _submitButtonClick();
                   },
                   child: Text('确认修改', style: TextStyle(color: Colors.white, fontSize: 16.0))),
             ),
@@ -99,5 +99,9 @@ class _MyHomePageState extends State<ChangePassWordHome> {
       surePassword = value;
     });
   }
-  
+
+  void _submitButtonClick() {
+    print('change password\nold pwd: ' + oldPassword + '\nnew pwd: '+ newPassword+ '\nsure new pwd: ' + surePassword);
+  }
+
 }
